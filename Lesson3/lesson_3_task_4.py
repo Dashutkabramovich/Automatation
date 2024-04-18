@@ -126,3 +126,7 @@ my_turtle.hideturtle()
 my_turtle.screen.exitonclick()
 my_turtle.screen.mainloop()
 
+from calculator import Calculator
+res = calculator.sum(-6, 6)
+assert res == 0
+
