@@ -21,7 +21,7 @@ def test_form_elements():
     driver.find_element(By.CSS_SELECTOR, 'input[name = "country"]').send_keys("Россия")
     driver.find_element(By.CSS_SELECTOR, 'input[name = "job-position"]').send_keys("QA")
     driver.find_element(By.CSS_SELECTOR, 'input[name = "company"]').send_keys("SkyPro")
-    #driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]').click()
+
     element = driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]')
     driver.execute_script("arguments[0].click();", element)
 
@@ -32,6 +32,6 @@ def test_form_elements():
                     "#phone", "#city", "#country", "#job-position", "#company"]
     for field in other_fields:
         field_color = driver.find_element(By.CSS_SELECTOR, field).value_of_css_property("background-color")
-    assert field_color == 'rgba(209, 231, 221, 1)'
+        assert field_color == 'rgba(209, 231, 221, 1)'
 
     driver.quit()
