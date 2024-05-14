@@ -14,9 +14,9 @@ def test_form_internet_shop():
                               (ChromeDriverManager().install()))
     internet_shop_page = InternetshopPage(driver)
     internet_shop_page.authorization("standard_user", "secret_sauce")
-    to_be = internet_shop_page.add_products()
+    price_added = internet_shop_page.add_products()
     internet_shop_page.go_to_cart()
     internet_shop_page.personal_data("Daria", "Abramovich", "127081")
-    as_is = internet_shop_page.total_cost()
-    assert as_is == to_be
+    price_calc = internet_shop_page.total_cost()
+    assert price_calc == price_added
     internet_shop_page.close()

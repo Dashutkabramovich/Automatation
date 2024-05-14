@@ -6,6 +6,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 from pages.PersonalDataPage import PersonalDataPage
 
+
 def test_form_elements():
     driver = webdriver.Chrome(service=ChromeService
                               (ChromeDriverManager().install()))
