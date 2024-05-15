@@ -21,7 +21,7 @@ def test_form_elements():
     driver.find_element(By.CSS_SELECTOR, 'input[name = "country"]').send_keys("Россия")
     driver.find_element(By.CSS_SELECTOR, 'input[name = "job-position"]').send_keys("QA")
     driver.find_element(By.CSS_SELECTOR, 'input[name = "company"]').send_keys("SkyPro")
-    #driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]').click()
+ 
     element = driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]')
     driver.execute_script("arguments[0].click();", element)
 
