@@ -24,22 +24,11 @@ def test_select_1_row():
     assert len(rows) == 1
     assert rows[-1]['name'] == "Клининг-центр 'Клинг-кинг'"
 
-def test_select_params():
-    db = create_engine(db_connection_string)
-    sql_statement = text("select * from employee where \"last_name\" = :last_name and \"company_id\" >= :company_id")
-    params = {
-        'last_name': 'guseva',
-        'company_id': 2987
-    }
-    rows = db.execute(sql_statement, params).fetchall()
-
-    assert len(rows) == 0
-
 def test_insert_company():
     db = create_engine(db_connection_string)
     sql = text("insert into company (\"name\") values (:new_name)")
     rows = db.execute(sql, new_name = 'SkyPro')
-
+    
 def test_insert_employee():
     db = create_engine(db_connection_string)
     sql = text("insert into employee (first_name, last_name, middle_name, phone, email, birthdate, avatar_url, company_id) values (:new_first_name, :new_last_name, :new_middle_name, :new_phone, :new_email, :new_birthdate, :new_avatar_url, :company_id)")

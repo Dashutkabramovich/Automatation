@@ -66,6 +66,3 @@ class EmployeesApi:
         resp = requests.patch(self.url + '/employee/' + str(id), headers=my_headers, json=employee)
         print(resp.json)
         return resp.json()  
-
-
-

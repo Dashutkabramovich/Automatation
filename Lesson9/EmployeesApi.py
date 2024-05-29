@@ -64,7 +64,6 @@ class EmployeesApi:
         resp = requests.patch(self.url + '/employee/' + str(id), headers=my_headers, json=employee)
         return resp.json()
 
-
     def delete_employee(self, id):
         employee = {
            'id': id
