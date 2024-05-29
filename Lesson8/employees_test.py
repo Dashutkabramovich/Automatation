@@ -113,3 +113,8 @@ def test_patch_employee():
     assert edited["email"] == "popov@mail.ru"
     assert edited["url"] == "_Updated_"
     assert edited["isActive"] == False
+    
+    
+
+    
+    
