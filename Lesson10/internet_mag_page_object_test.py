@@ -9,13 +9,10 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 from pages.InternetMagPage import InternetMagPage
 
-@allure.id("Internet_mag")
-@allure.epic("Интернет-магазин")
-@allure.severity("blocker")
-@allure.story("Покупка товаров")
-@allure.feature("CREATE")
 @allure.title("Выбор товара, работа с корзиной и оплата")
-@allure.suite("Тесты на работу с интернет-магазином")
+@allure.discription("Тест проверяет работу интернет-магазина")
+@allure.feature("CREATE")
+@allure.severity("blocker")
 def test_form_internet_mag():
     with allure.step("Открытие веб-страницы Chrome"):
         driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
