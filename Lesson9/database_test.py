@@ -14,15 +14,15 @@ def test_select():
     row1 = rows[0]
 
     assert row1['id'] > 2928
-    assert row1['name'] == "SIAN Ltd"
+    assert row1['name'] == "SkyPro"
 
 def test_select_1_row():
     db = create_engine(db_connection_string)
     sql_statement = text("select * from company where id = :company_id")
-    rows = db.execute(sql_statement, company_id = 3378).fetchall()
+    rows = db.execute(sql_statement, company_id = 5162).fetchall()
 
     assert len(rows) == 1
-    assert rows[-1]['name'] == "Клининг-центр 'Клинг-кинг'"
+    assert rows[-1]['name'] == "Барбершоп 'ЦирюльникЪ'"
 
 def test_insert_company():
     db = create_engine(db_connection_string)
@@ -32,7 +32,7 @@ def test_insert_company():
 def test_insert_employee():
     db = create_engine(db_connection_string)
     sql = text("insert into employee (first_name, last_name, middle_name, phone, email, birthdate, avatar_url, company_id) values (:new_first_name, :new_last_name, :new_middle_name, :new_phone, :new_email, :new_birthdate, :new_avatar_url, :company_id)")
-    rows = db.execute(sql, new_first_name = 'Daria', new_last_name = 'Kotova', new_middle_name = 'Alekseevna', new_phone = '89035145997', new_email = 'dkotova@mail.ru', new_birthdate = '1981-11-10', new_avatar_url = 'string', company_id = 3405)
+    rows = db.execute(sql, new_first_name = 'Daria', new_last_name = 'Kotova', new_middle_name = 'Alekseevna', new_phone = '89035145997', new_email = 'dkotova@mail.ru', new_birthdate = '1981-11-10', new_avatar_url = 'string', company_id = 5162)
 
 def test_update_company():
     db = create_engine(db_connection_string)
@@ -51,5 +51,5 @@ def test_delete_emloyee():
 
 def test_delete_company():
     db = create_engine(db_connection_string)
-    sql = text("delete from company  where id = :id")
+    sql = text("delete from company where id = :id")
     rows = db.execute(sql, id = 2446)
