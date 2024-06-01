@@ -8,7 +8,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from pages.PersonalDataPage import PersonalDataPage
 
 @allure.title("Заполнить персональные данные")
-@allure.discription("Тест проверяет работу формы с заполнением персональных данных")
+@allure.description("Тест проверяет работу формы с заполнением персональных данных")
 @allure.feature("CREATE")
 @allure.severity("blocker")
 def test_form_elements():
