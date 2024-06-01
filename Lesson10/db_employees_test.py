@@ -35,15 +35,11 @@ def generate_edit_employee(companyId):
     new_phone = fake.bothify(text='+79#########')
     new_isActive = random.choice([True, False])
     return new_lastName, new_email, new_url, new_phone, new_isActive
-
-@allure.id("SkyPro-1")
-@allure.epic("Сотрудники")
-@allure.severity("blocker")
-@allure.story("Получение списка сотрудников")
-@allure.feature("READ")
+    
 @allure.title("Получение полного списка сотрудников")
-@allure.suite("Тесты по работе с сотрудниками")
-
+@allure.discription("Тест проверяет работу полного списка сотрудников")
+@allure.feature("READ")
+@allure.severity("blocker")
 def test_get_list_employee():
     with allure.step("Cоздать новую компанию"):
         name, description = generate_company()
@@ -59,14 +55,10 @@ def test_get_list_employee():
     with allure.step("Проверить, что список сотрудников в API и db одинаковый"):
         assert len(api_list) == len(db_list)
 
-@allure.id("SkyPro-2")
-@allure.epic("Сотрудники")
-@allure.severity("blocker")
-@allure.story("Добавление нового сотрудника")
+@allure.title("Добавление нового сотрудника")
+@allure.discription("Тест проверяет возможность добавления новых сотрудников")
 @allure.feature("CREATE")
-@allure.title("Создание нового сотрудника")
-@allure.suite("Тесты на работу с сотрудниками")
-
+@allure.severity("blocker")
 def test_add_new_employee():
     with allure.step("Cоздать новую организацию"):
         name, description = generate_company()
@@ -112,14 +104,10 @@ def test_add_new_employee():
         assert api_list_after[-1]['isActive'] == isActive
         assert api_list_after[-1]['id'] == max_id_empl
 
-@allure.id("SkyPro-3")
-@allure.epic("Сотрудники")
+@allure.title("Редактирование данных сотрудника")
+@allure.discription("Тест проверяет возможность редактирования данных сотрудника")
+@allure.feature("UPDATE")
 @allure.severity("blocker")
-@allure.story("Получение сотрудника по id")
-@allure.feature("READ")
-@allure.title("Получить сотрудника по id")
-@allure.suite("Тесты по работе с сотрудниками")
-
 def test_patch_employee():
     with allure.step("Cоздать новую компанию"):
         name, description = generate_company()
@@ -153,15 +141,11 @@ def test_patch_employee():
         assert edited["url"] == new_url
         assert edited["isActive"] == new_isActive
         assert edited["email"] == new_email
-
-@allure.id("SkyPro-4")
-@allure.epic("Сотрудники")
-@allure.severity("blocker")
-@allure.story("Удаление сотрудника")
-@allure.feature("DELETE")
+        
 @allure.title("Удалить сотрудника по id")
-@allure.suite("Тесты по работе с сотрудниками")
-
+@allure.discription("Тест проверяет возможность удаления сотрудника")
+@allure.feature("DELETE")
+@allure.severity("blocker")
 def test_delete_employee():
     with allure.step("Cоздать новую компанию"):
         name, description = generate_company()
@@ -189,15 +173,11 @@ def test_delete_employee():
 
     with allure.step("Проверить удаление сотрудника в организации с максимальным id"):
         assert not db.get_emploees_db(max_id)
-
-@allure.id("SkyPro-5")
-@allure.epic("Сотрудники")
-@allure.severity("blocker")
-@allure.story("Добавление и удаление несколько сотрудников")
-@allure.feature("ADD, DELETE")
+        
 @allure.title("Добавить и удалить сразу нескольких сотрудников")
-@allure.suite("Тесты по работе с сотрудниками")
-
+@allure.discription("Тест проверяет возможность добавления и удаления сразу нескольких сотудников")
+@allure.feature("ADD, DELETE")
+@allure.severity("blocker")
 def test_add_del_several_empl():
     with allure.step("Cоздать новую компанию"):
         name, description = generate_company()
