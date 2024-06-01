@@ -37,7 +37,7 @@ def generate_edit_employee(companyId):
     return new_lastName, new_email, new_url, new_phone, new_isActive
     
 @allure.title("Получение полного списка сотрудников")
-@allure.discription("Тест проверяет работу полного списка сотрудников")
+@allure.description("Тест проверяет работу полного списка сотрудников")
 @allure.feature("READ")
 @allure.severity("blocker")
 def test_get_list_employee():
@@ -56,7 +56,7 @@ def test_get_list_employee():
         assert len(api_list) == len(db_list)
 
 @allure.title("Добавление нового сотрудника")
-@allure.discription("Тест проверяет возможность добавления новых сотрудников")
+@allure.description("Тест проверяет возможность добавления новых сотрудников")
 @allure.feature("CREATE")
 @allure.severity("blocker")
 def test_add_new_employee():
@@ -105,7 +105,7 @@ def test_add_new_employee():
         assert api_list_after[-1]['id'] == max_id_empl
 
 @allure.title("Редактирование данных сотрудника")
-@allure.discription("Тест проверяет возможность редактирования данных сотрудника")
+@allure.description("Тест проверяет возможность редактирования данных сотрудника")
 @allure.feature("UPDATE")
 @allure.severity("blocker")
 def test_patch_employee():
@@ -143,7 +143,7 @@ def test_patch_employee():
         assert edited["email"] == new_email
         
 @allure.title("Удалить сотрудника по id")
-@allure.discription("Тест проверяет возможность удаления сотрудника")
+@allure.description("Тест проверяет возможность удаления сотрудника")
 @allure.feature("DELETE")
 @allure.severity("blocker")
 def test_delete_employee():
@@ -175,7 +175,7 @@ def test_delete_employee():
         assert not db.get_emploees_db(max_id)
         
 @allure.title("Добавить и удалить сразу нескольких сотрудников")
-@allure.discription("Тест проверяет возможность добавления и удаления сразу нескольких сотудников")
+@allure.description("Тест проверяет возможность добавления и удаления сразу нескольких сотудников")
 @allure.feature("ADD, DELETE")
 @allure.severity("blocker")
 def test_add_del_several_empl():
