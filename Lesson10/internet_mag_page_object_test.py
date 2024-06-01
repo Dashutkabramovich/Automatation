@@ -10,7 +10,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from pages.InternetMagPage import InternetMagPage
 
 @allure.title("Выбор товара, работа с корзиной и оплата")
-@allure.discription("Тест проверяет покупку товаров в интернет-магазине")
+@allure.description("Тест проверяет покупку товаров в интернет-магазине")
 @allure.feature("CREATE")
 @allure.severity("blocker")
 def test_form_internet_mag():
