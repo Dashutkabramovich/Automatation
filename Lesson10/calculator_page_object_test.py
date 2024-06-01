@@ -6,7 +6,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from pages.CalculatorPage import CalculatorPage
 
 @allure.title("Сложение чисел на калькуляторе")
-@allure.discription("Тест проверяет корректное выполнение математических задач на калькуляторе")
+@allure.description("Тест проверяет корректное выполнение математических задач на калькуляторе")
 @allure.feature("CREATE")
 @allure.severity("blocker")
 def test_form_calculator():
