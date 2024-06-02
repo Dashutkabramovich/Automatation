@@ -9,8 +9,8 @@ class EmployeesTable:
         "insert new employee": text("insert into employee (first_name, last_name, middle_name, phone, email, birthdate, avatar_url, is_active, company_id) values (:first_name, :last_name, :middle_name, :phone, :email, :birthdate, :avatar_url, :is_active, :company_id)"),
         "get max id empl": text("select MAX(id) from employee"),
         'edited employee': text("update employee set last_name = :new_lastName, email = :new_email, url = :new_url, phone = :new_phone, isActive = :new_isActive where id = :employeeId"),
-        'delete id employee': text("delete from employee where id = :id_to_delete"),
-        "delete by id": text("delete from company where id = :id_to_delete")
+        'delete id employee': text("delete from employee where id = :max_id_empl"),
+        "delete by id": text("delete from company where id = :max_id")
          }
 
     def __init__(self, connection_string):
