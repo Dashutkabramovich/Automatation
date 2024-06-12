@@ -5,13 +5,10 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from pages.CalculatorPage import CalculatorPage
 
-@allure.id("Calculator")
-@allure.epic("Калькулятор")
-@allure.severity("blocker")
-@allure.suite("Тесты на работу с калькулятором")
-@allure.story("Выполнение математических задач на калькуляторе")
 @allure.title("Сложение чисел на калькуляторе")
+@allure.description("Тест проверяет корректное выполнение математических задач на калькуляторе")
 @allure.feature("CREATE")
+@allure.severity("blocker")
 def test_form_calculator():
     with allure.step("Открытие веб-страницы Chrome"):
         driver = webdriver.Chrome(
